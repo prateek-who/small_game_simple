@@ -50,10 +50,10 @@ class trader
 {
     Scanner sc= new Scanner(System.in);
     //Can add more dialogues and even more characters in the future
-    int choice,count=1;
+    int choice,mys_fig_count=1;
 
-    public void interact(){
-        if(count==1) {
+    public void interact_mys_fig(){
+        if(mys_fig_count==1) {
             System.out.println("(?): What are you still doing here?\n1.Interact\n2.Leave");
             choice = sc.nextInt();
 
@@ -82,11 +82,11 @@ class trader
                 System.out.println("*The mysterious figure looks at you weirdly and leaves*");
                 System.out.println("*You decide to leave*");
             }
-            count++;
+            mys_fig_count++;
         }
 
         //if characeters comes here again, this will be played!
-        else if(count==2){
+        else if(mys_fig_count==2){
             System.out.println("*An empty broken shed...You wonder where the mysterious figure went..\n1. Look inside\n2. Leave");
             choice=sc.nextInt();
             if(choice==1){
@@ -120,10 +120,11 @@ class act_ply extends print_on_screen
                 default -> System.out.println("Wrong Input!");
             }
             if((r_ch<6 && r_ch>0) && (c_ch<24 && c_ch>0)){
-                System.out.println(r_ch+" "+c_ch);
+                System.out.println(r_ch+" "+c_ch); //Prints and checks coordiantes, can be deleted later!
                 prnt();
+                // Add character locations here aswell!!
                 if(r_ch==3 && c_ch==18){
-                    trader_obj1.interact();
+                    trader_obj1.interact_mys_fig();
                 }
             }
             else{
